@@ -5,12 +5,12 @@ const CastCard = ({
   name,
 }: {
   avatarLink: string;
-  name: string;
+  name?: string;
 }) => {
   return (
-    <div className="p-1 m-1">
-      <img className="w-28 rounded-sm" src={avatarLink} alt="" />
-      <p className="text-gray-500 font-semibold">{name}</p>
+    <div className="p-1 m-1 flex flex-col items-center">
+      <img className="w-28 rounded-full border border-slate-700" src={avatarLink} alt="" />
+      <p className="font-semibold text-blue-600">{name}</p>
     </div>
   );
 };
