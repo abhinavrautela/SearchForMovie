@@ -11,6 +11,7 @@ const store = configureStore({
   },
   middleware: [sagaMiddleware]
 })
+
 export type State = ReturnType<typeof store.getState>
 
 sagaMiddleware.run(rootSaga)

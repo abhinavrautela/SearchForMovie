@@ -1,4 +1,4 @@
-import { createAction, createEntityAdapter, createSlice,  PayloadAction } from '@reduxjs/toolkit'
+import { createEntityAdapter, createSlice,  PayloadAction } from '@reduxjs/toolkit'
 import { normalize, schema } from 'normalizr';
 import { Actor } from '../Models/Actor';
 import { Show } from '../Models/Show';
@@ -53,7 +53,7 @@ function castFetched(state: state, action: PayloadAction<Actor[]>){
     const normalized = normalize(cast, [castEntity])
     const normalizedCast = normalized.entities.cast
   state.castLoading = false
-  state.cast = normalizedCast!
+  state.cast = {...normalizedCast}
 }
 
 

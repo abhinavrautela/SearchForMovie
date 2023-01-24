@@ -52,7 +52,7 @@ const ShowDetailPage: FC<ShowDetailPageProps> = ({ params, getShowDetails, showD
           { castLoading ? 
           <span className="text-2xl mt-3 font-mono flex items-center">Loading<LoadingSpinner /> </span> 
           :
-          <>{ showCast.length ? showCast.map(sc => <CastCard
+          <>{ showCast.length != 0 ? showCast.map(sc => <CastCard
            key={sc.id}
             avatarLink={sc.image?.medium || "https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"}
             name={sc.name}
