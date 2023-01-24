@@ -5,7 +5,7 @@ const showStateSelector = (s: State) => s.Shows
 
 
 const normalizedShowSelector = createSelector(showStateSelector, (showsState) => {
-return showsState.shows  
+return showsState.entities 
 })
 
 export const showloadingSelector = createSelector(showStateSelector, showState => {

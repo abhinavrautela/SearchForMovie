@@ -1,11 +1,11 @@
 import { FC, memo, useEffect } from "react";
 import { connect, ConnectedProps } from "react-redux";
-import { fetchShowCast, fetchShowDetail } from "../Actions/Shows";
 import CastCard from "../Components/CastCard";
 import GenrePill from "../Components/GenrePill";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import withRouter, { WithRouterProps } from "../hocs/withRouter";
 import { castLoadingSelector, showCastSelector, showDetailLoadingSelector, showDetailSelector } from "../Selectors/ShowDetail";
+import { fetchShowCast, fetchShowDetail } from "../Slices/showDetail";
 import { State } from "../store";
 
 type ShowDetailPageProps = WithRouterProps & ReduxProp
@@ -39,9 +39,7 @@ const ShowDetailPage: FC<ShowDetailPageProps> = ({ params, getShowDetails, showD
         <div className="ml-2">
           <h1 className="text-4xl font-thin tracking-tighter underline text-stone-800">#{showDetail.name}</h1>
           <h3 className="font-extrabold text-xl text-purple-800 mt-3">Discription: </h3>
-          <p className="font-thin">
-            {showDetail.summary || "Not Avilable"}
-          </p>
+          <p dangerouslySetInnerHTML={{__html: showDetail.summary || "Not Avilable"} }/>
           <p className="mt-2 text-lg font-bold border border-gray-700 rounded-md px-2 py-1 max-w-max">
             Rating: <span className="text-gray-700">{showDetail.rating?.average || 5} / 10</span>
           </p>

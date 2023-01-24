@@ -5,7 +5,7 @@ const showDetailStateSelector = (s: State) => s.ShowsDetail
 
 
 export const showDetailSelector = createSelector(showDetailStateSelector, (showDetailState) => {
-  return showDetailState.detail
+  return showDetailState.entities
 })
 
 export const showCastSelector = createSelector(showDetailStateSelector, (showDetailState)=> {

@@ -1,16 +1,18 @@
 import createSagaMiddleware from "@redux-saga/core";
 import { call, put, takeLatest, debounce} from "redux-saga/effects"
-import { Action } from "./Actions";
-import { fetchdShowCast, fetchedShowDetail, fetchedShowsData, FETCH_CAST, FETCH_SHOWS_DATA, FETCH_SHOW_DETAIL } from "./Actions/Shows";
+import { Action } from "./Models/Action";
+
 import { getShowCast, getShowDetail, getShows } from "./api";
+import { fetchdShowCast, fetchedShowDetail, fetchShowCast, fetchShowDetail } from "./Slices/showDetail";
+import { fetchedShowsData, fetchShowsData } from "./Slices/shows";
 
 
 export const sagaMiddleware = createSagaMiddleware();
 
 export function* rootSaga() {
-   yield debounce(200,FETCH_SHOWS_DATA, fetchShowsSaga);
-   yield takeLatest(FETCH_SHOW_DETAIL, fetchShowDetailSaga)
-   yield takeLatest(FETCH_CAST, fetchShowCastSaga)
+   yield debounce(350,fetchShowsData, fetchShowsSaga);
+   yield takeLatest(fetchShowDetail, fetchShowDetailSaga)
+   yield takeLatest(fetchShowCast, fetchShowCastSaga)
 }
 
 function* fetchShowsSaga(action: Action): Generator<any, any, any>{

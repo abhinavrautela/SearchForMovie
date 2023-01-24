@@ -1,11 +1,10 @@
 import { FC, memo } from "react";
 import { connect, ConnectedProps } from "react-redux";
-import { fetchShowsData } from "../Actions/Shows";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import SearchBar from "../Components/SearchBar";
 import ShowCard from "../Components/ShowCard";
 import { showloadingSelector, showMapSelector, showQuerySelector } from "../Selectors/Show";
-import { showCastSelector } from "../Selectors/ShowDetail";
+import { fetchShowsData } from "../Slices/shows";
 import { State } from "../store";
 
 type ShowListPageProps = ReduxProp 
